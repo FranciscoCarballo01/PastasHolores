@@ -1,6 +1,7 @@
 using Application.Interfaces;
 using Application.Services;
 using Domain.Interfaces;
+using Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,12 +14,18 @@ builder.Services.AddSwaggerGen();
 
 #region Repositories
 builder.Services.AddScoped<IAdminRepository, AdminRepositoryEf>();
+builder.Services.AddScoped<IClientRepository, ClientRepositoryEf>();
 #endregion
 
 #region Services
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IClientService, ClientService>();
 #endregion
 
+#region Database
+builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlite(
+    builder.Configuration["ConnectionStrings:PastasHoloresSlnDBConnectionString"], b => b.MigrationsAssembly("Web")));
+#endregion
 
 var app = builder.Build();
 

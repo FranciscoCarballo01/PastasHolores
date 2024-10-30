@@ -38,3 +38,4 @@ namespace Infrastructure.Data
                 .HasForeignKey<Cart>(c => c.ClientId);
         }
     }
+}

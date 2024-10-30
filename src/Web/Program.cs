@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAdminRepository, AdminRepositoryEf>();
 builder.Services.AddScoped<IClientRepository, ClientRepositoryEf>();
 builder.Services.AddScoped<IProductRepository, ProductRepositoryEf>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 #endregion
 

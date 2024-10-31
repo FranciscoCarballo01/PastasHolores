@@ -11,7 +11,7 @@ namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy = "RequireClientRole")]
+    
     public class ClientController : ControllerBase
     {
         private readonly IClientService _clientService;
@@ -95,7 +95,7 @@ namespace Web.Controllers
 
 
 
-        //              ↓ ↓ ↓ ↓  ENDPOINTS ESPECÍFICOS ↓ ↓ ↓ ↓ 
+       
 
 
 
@@ -107,7 +107,7 @@ namespace Web.Controllers
             {
                 var cart = _clientService.GetCart(clientId);
                 return cart;
-
+                
             }
             catch (NotFoundException ex)
             {
@@ -151,7 +151,7 @@ namespace Web.Controllers
                 _clientService.CompletePurchase(clientId, paymentMethod);
                 return NoContent();
             }
-            catch (NotFoundException ex)
+            catch(NotFoundException ex)
             {
                 return NotFound(ex.Message);
             }

@@ -30,7 +30,7 @@ namespace Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update([FromRoute] int id, [FromBody] AdminUpdateRequest adminUpdateRequest)
+        public IActionResult Update([FromRoute]int id, [FromBody]AdminUpdateRequest adminUpdateRequest)
         {
             try
             {
@@ -44,14 +44,14 @@ namespace Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete([FromRoute] int id)
+        public IActionResult Delete([FromRoute]int id)
         {
             try
             {
                 _adminService.Delete(id);
                 return NoContent();
             }
-            catch (NotFoundException ex)
+            catch(NotFoundException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -64,8 +64,8 @@ namespace Web.Controllers
         }
 
         [HttpGet("[action]")]
-        public ActionResult<List<Admin>> GetAllFullData()
-        {
+        public ActionResult<List<Admin>> GetAllFullData() 
+        { 
             return _adminService.GetAllFullData();
         }
 

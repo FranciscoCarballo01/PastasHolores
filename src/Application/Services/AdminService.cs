@@ -19,6 +19,11 @@ namespace Application.Services
             _adminRepository = adminRepository;
         }
 
+        public AdminService(IAdminRepository adminRepository)
+        {
+            _adminRepository = adminRepository;
+        }
+
         public Admin Create(AdminCreateRequest adminCreateRequest)
         {
             var newObj = new Admin();

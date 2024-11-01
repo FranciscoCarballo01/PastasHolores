@@ -21,7 +21,7 @@ namespace Domain.Entities
         public float TotalPrice { get; set; }
         public CartStatus Status { get; set; }
         public string? PaymentMethod { get; set; }
-        [JsonIgnore]    // Decorador para evitar que se genere un ciclo entre entidades Client y Cart
+        [JsonIgnore]    
         public Client? Client { get; set; }
 
         public Cart()
